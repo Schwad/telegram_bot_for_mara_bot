@@ -7,4 +7,3 @@ Rake::TestTask.new(:spec) do |t|
 end
 
 task :default => :spec
-

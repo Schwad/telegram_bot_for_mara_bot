@@ -5,5 +5,6 @@ module TelegramBot
     alias_method :id, :update_id
     alias_method :to_i, :id
     attribute :message, Message
+    attribute :edited_message, EditedMessage
   end
 end

@@ -1,15 +1,16 @@
 module TelegramBot
-  class Message
+  class EditedMessage
     include Virtus.model
     attribute :message_id, Integer
     alias_method :id, :message_id
     alias_method :to_i, :id
     attribute :from, User
     alias_method :user, :from
-    attribute :text, String
     attribute :date, DateTime
+    attribute :text, String
+    attribute :edit_date, DateTime
     attribute :chat, Channel
-    attribute :reply_to_message, Message
+    attribute :reply_to_message, EditedMessage
     attribute :location, Location
 
     def reply(&block)
@@ -23,7 +24,7 @@ module TelegramBot
     end
 
     def edited?
-      false
+      true
     end
   end
 end

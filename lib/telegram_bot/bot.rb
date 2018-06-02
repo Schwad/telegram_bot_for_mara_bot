@@ -26,11 +26,11 @@ module TelegramBot
     alias_method :identity, :me
 
     def get_updates(opts = {}, &block)
-      return get_last_messages(opts) unless block_given?
+      return get_last_updates(opts) unless block_given?
 
       logger.info "starting get_updates loop"
       loop do
-        messages = get_last_messages(opts)
+        messages = get_last_updates(opts)
         messages.compact.each do |message|
           next unless message
           logger.info "message from @#{message.chat.friendly_name}: #{message.text.inspect}"
@@ -76,11 +76,7 @@ module TelegramBot
       end
       updates = response.result.map{|raw_update| Update.new(raw_update) }
       @offset = updates.last.id + 1 if updates.any?
-      updates
-    end
-
-    def get_last_messages(opts = {})
-      get_last_updates(opts).map(&:message)
+      updates.map(&:message) + updates.map(&:edited_message)
     end
   end
 end
