@@ -45,7 +45,7 @@ module TelegramBot
       Message.new(response.result)
     end
 
-    def set_webhook(url, allowed_updates: %i(message))
+    def set_webhook(url, allowed_updates: %i(message edited_message))
       logger.info "setting webhook url to #{url}, allowed_updates: #{allowed_updates}"
       settings = {
         url: url,
