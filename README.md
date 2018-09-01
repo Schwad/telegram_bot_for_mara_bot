@@ -1,5 +1,9 @@
 # TelegramBot
 
+## WARNING
+
+This is a __temporary__ fork that should not be trusted, and is being currently used for [MaraBot](https://github.com/schwad/marabot) to implement bleeding-edge live-location monitoring. It is also being used as a training ground for future PRs on the REAL Telegram Bot [here](https://github.com/eljojo/telegram_bot).
+
 A charismatic ruby client for [Telegram's Bot API](https://core.telegram.org/bots).
 
 Write your own Telegram Bot using Ruby! Yay!
